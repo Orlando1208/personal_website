@@ -1,17 +1,17 @@
 <template>
     <div>
         <!-- <h1>indexpage</h1> -->
+        <inviteForm v-if="inviteFormDisplay" @closeInviteForm="closeInviteForm" class="animate__animated animate__fadeIn"/>
          <video id="v1" autoplay loop muted>
               <source src="../../assets/videos/amazing_landscape.mp4" type="video/mp4"  />
         </video>
-        <div id="mask">
+        <div id="mask" v-show="!inviteFormDisplay" class="animate__animated  animate__fadeIn">
             <el-container>
             <el-aside width="30%">
                 <div id="intro">
                     <div id="hello">Hello</div>
                     <p>Welcome to Echo's personal website</p>
                 </div>
-
             </el-aside>
                 <el-container>
                     <el-header></el-header>
@@ -19,7 +19,7 @@
                         <button id="coop">Cooperate with me</button>
                     </el-main>
                     <el-footer>
-                        <el-button color="#303133" round :dark="isDark" id="invite">Invited</el-button>
+                        <el-button color="#303133" round :dark="isDark" id="invite" @click="showInviteForm">Invited</el-button>
                     </el-footer>
                 </el-container>
             </el-container>
@@ -29,8 +29,22 @@
 </template>
 
 <script>
+import inviteForm from './inviteForm.vue'
+import {ref} from 'vue'
+
 export default {
-    name:"indexPage"
+    name:"indexPage",
+    components:{inviteForm},
+    setup(props){
+        let inviteFormDisplay=ref(false)
+        let showInviteForm=()=>{
+            inviteFormDisplay.value=true
+        }
+        let closeInviteForm=()=>{
+            inviteFormDisplay.value=false
+        }
+        return {inviteFormDisplay,showInviteForm,closeInviteForm}
+    }
 }
 </script>
 
