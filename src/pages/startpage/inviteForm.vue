@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {inject, ref} from "vue";
 import Vcode from "vue3-puzzle-vcode";
 export default {
   components:{Vcode},
@@ -67,12 +67,15 @@ export default {
         // alert('close')
         context.emit('closeInviteForm')
       }
+      const swichToIntroducePage=inject('swichToIntroducePage')
       const enterOrOut=()=>{
         if(true){
+          
           console.log('enter')
+          swichToIntroducePage()
         }
       }
-			return {isShow,inviteCode,isShow,isRobot,verifySuccess,onShow,onClose,onSuccess,closeBtn}
+			return {isShow,inviteCode,isShow,isRobot,verifySuccess,onShow,onClose,onSuccess,closeBtn,enterOrOut}
 		}
 }
 </script>
