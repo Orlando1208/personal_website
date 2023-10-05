@@ -4,7 +4,7 @@
 
 <script>
 import indexPage from './pages/indexPage.vue'
-
+// import {useStore} from 'vuex'
 // import HelloWorld from './components/HelloWorld.vue'
 // import Main from './pages/startpage/main.vue'
 
@@ -14,7 +14,7 @@ export default {
     indexPage
   },
   setup(){
-
+    // const store=useStore()
   }
 }
 </script>

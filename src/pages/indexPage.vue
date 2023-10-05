@@ -14,7 +14,11 @@ export default {
     const swichToIntroducePage=()=>{
         router.push('/introduction')
     }
+    const swichToPrivatePage=()=>{
+      router.push('/private')
+    }
     provide('swichToIntroducePage',swichToIntroducePage)
+    provide('swichToPrivatePage',swichToPrivatePage)
   }
 }
 </script>

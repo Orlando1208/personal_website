@@ -10,11 +10,13 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "animate.css": "^4.1.1",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "element-plus": "^2.3.8",
     "vue": "^3.2.13",
     "vue-router": "^4.2.4",
-    "vue3-puzzle-vcode": "^1.0.15"
+    "vue3-puzzle-vcode": "^1.0.15",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

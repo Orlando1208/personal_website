@@ -16,10 +16,10 @@
                 <el-container>
                     <el-header></el-header>
                     <el-main>
-                        <button id="coop">Cooperate with me</button>
+                        <button id="coop" @click="Cooperate">Cooperate with me</button>
                     </el-main>
                     <el-footer>
-                        <el-button color="#303133" round :dark="isDark" id="invite" @click="showInviteForm">Invited</el-button>
+                        <el-button color="#303133" round :dark="true" id="invite" @click="showInviteForm">Invited</el-button>
                     </el-footer>
                 </el-container>
             </el-container>
@@ -30,7 +30,7 @@
 
 <script>
 import inviteForm from './inviteForm.vue'
-import {ref} from 'vue'
+import {ref,inject} from 'vue'
 
 export default {
     name:"indexPage",
@@ -43,7 +43,11 @@ export default {
         let closeInviteForm=()=>{
             inviteFormDisplay.value=false
         }
-        return {inviteFormDisplay,showInviteForm,closeInviteForm}
+        const swichToIntroducePage=inject('swichToIntroducePage')
+        let Cooperate=()=>{
+            swichToIntroducePage()
+        }
+        return {inviteFormDisplay,showInviteForm,closeInviteForm,Cooperate}
     }
 }
 </script>

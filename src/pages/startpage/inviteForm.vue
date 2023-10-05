@@ -21,7 +21,7 @@
                     />
                     <el-button type="info" round @click="onShow" v-show="isRobot" class="btn" size="large">Robot verification</el-button>
                     <el-button type="success" round @click="onShow" v-show="!isRobot" class="btn" disabled size="large"><el-icon><Check /></el-icon>Comfirmed</el-button>
-                    <Vcode :show="isShow" @success="onSuccess" @close="onClose" @fail='onFall' />
+                    <Vcode :show="isShow" @success="onSuccess" @close="onClose" />
                 </el-main>
                 <el-footer>
                   <el-button :disabled='isRobot' type="primary" round style="width:140px;height:50px" @click="enterOrOut">Enter</el-button>
@@ -67,12 +67,12 @@ export default {
         // alert('close')
         context.emit('closeInviteForm')
       }
-      const swichToIntroducePage=inject('swichToIntroducePage')
+      const swichToPrivatePage=inject('swichToPrivatePage')
       const enterOrOut=()=>{
         if(true){
-          
-          console.log('enter')
-          swichToIntroducePage()
+          // console.log('enter')
+          context.emit('closeInviteForm')
+          swichToPrivatePage()
         }
       }
 			return {isShow,inviteCode,isShow,isRobot,verifySuccess,onShow,onClose,onSuccess,closeBtn,enterOrOut}
